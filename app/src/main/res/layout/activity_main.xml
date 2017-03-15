@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+
+    tools:context="com.example.newnyc.myrestaurant.MainActivity">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/back"
+        android:scaleType="centerCrop"/>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MyRestaurant"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:id="@+id/appNameTextView"
+        />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@+id/locationTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        ></ListView>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationEdittext"
+        android:background="@color/colorTextIcons"
+        android:layout_above="@+id/findRestaurantButton"
+        android:layout_marginBottom="10dp"
+        android:padding="5dp"
+        android:hint="enter a zip code"
+        android:layout_centerHorizontal="true"
+
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find Restaurants"
+        android:id="@+id/findRestaurantButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorTextIcons"
+        />
+
+
+</RelativeLayout>
