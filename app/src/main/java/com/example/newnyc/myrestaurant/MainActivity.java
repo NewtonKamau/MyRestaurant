@@ -1,39 +1,42 @@
 package com.example.newnyc.myrestaurant;
 
+
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 
 public class MainActivity extends AppCompatActivity {
-    public static final String TAG = MainActivity.class.getSimpleName();
-    public Button mfindMyRestaurantButton;
-    private EditText mLocationEditText;
-    private  TextView mAppNameTextView;
+    @Bind(R.id.findRestaurantButton) Button mfindRestaurantButton;
+    @Bind(R.id.locationEditText) EditText mLocationEditText;
+    @Bind(R.id.appNameTextView) TextView mappNameTextView;
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState){
-       super.onCreate(savedInstanceState);
+    protected  void  onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mLocationEditText = (EditText) findViewById(R.id.locationEdittext);
-        mfindMyRestaurantButton = (Button) findViewById(R.id.findRestaurantButton);
-        mAppNameTextView = (TextView) findViewById(R.id.appNameTextView);
-        Typeface pacificFont = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.ttf");
-        mAppNameTextView.setTypeface(pacificFont);
-        mfindMyRestaurantButton.setOnClickListener(new  View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                String location = mLocationEditText.getText().toString();
-                Log.d(TAG, location);
-                Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
-                intent.putExtra("location", location);
+        ButterKnife.bind(this);
+
+        Typeface Pacifico = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.ttf");
+        mappNameTextView.setTypeface(Pacifico);
+        mfindRestaurantButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+            public  void onClick(View v) {
+            String location = mLocationEditText.getText().toString();
+            Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
+            intent.putExtra("location", location);
                 startActivity(intent);
-            }
+        }
+
         });
 
     }

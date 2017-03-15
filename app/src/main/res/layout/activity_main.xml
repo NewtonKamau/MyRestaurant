@@ -33,7 +33,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/locationEdittext"
+        android:id="@+id/locationEditText"
         android:background="@color/colorTextIcons"
         android:layout_above="@+id/findRestaurantButton"
         android:layout_marginBottom="10dp"
