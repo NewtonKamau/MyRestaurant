@@ -14,7 +14,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements  View.OnClickListener {
     @Bind(R.id.findRestaurantButton) Button mfindRestaurantButton;
     @Bind(R.id.locationEditText) EditText mLocationEditText;
     @Bind(R.id.appNameTextView) TextView mappNameTextView;
@@ -28,16 +28,18 @@ public class MainActivity extends AppCompatActivity {
 
         Typeface Pacifico = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.ttf");
         mappNameTextView.setTypeface(Pacifico);
-        mfindRestaurantButton.setOnClickListener(new View.OnClickListener() {
-        @Override
-            public  void onClick(View v) {
+        mfindRestaurantButton.setOnClickListener(this);
+
+    }
+
+    @Override
+    public  void onClick(View v) {
+        if(v == mfindRestaurantButton) {
             String location = mLocationEditText.getText().toString();
             Intent intent = new Intent(MainActivity.this, RestaurantActivity.class);
             intent.putExtra("location", location);
-                startActivity(intent);
+            startActivity(intent);
         }
-
-        });
 
     }
 }
